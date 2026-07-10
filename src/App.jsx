@@ -7,16 +7,26 @@ import Register from './components/Register'
 import Search from './components/Search'
 import Discharge from './components/Discharge'
 import ViewPage from './components/ViewPage'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Register />
-      <Search />
-      <Discharge />
-      <ViewPage />
+      <BrowserRouter>
+        <Routes>
+
+      <Route path='/' element={<Register/>}/>
+      <Route path='/se' element={<Search/>}/>
+      <Route path='/di' element={<Discharge/>}/>
+      <Route path='/vi' element={<ViewPage/>}/>
+
+
+      
+
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

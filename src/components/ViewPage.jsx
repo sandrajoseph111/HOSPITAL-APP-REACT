@@ -1,9 +1,10 @@
 import React from 'react'
+import NavigationBar from './NavigationBar'
 
 const ViewPage = () => {
   return (
     <div>
-
+        <NavigationBar />
         <table class="table">
   <thead>
     <tr>
