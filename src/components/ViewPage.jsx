@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavigationBar from './NavigationBar'
+import axios from 'axios'
 
 const ViewPage = () => {
+    const [data, ChangeData]=useState([])
+
+    const fetchData =()=>{
+
+
+        axios.get("https://raw.githubusercontent.com/anishpdm/demo-json-api/refs/heads/main/hospital-data.json").then(
+
+            (Response)=>{
+
+                ChangeData(Response.data)
+            }
+
+        ).catch()
+    }
+
+    useEffect(
+
+        ()=>{
+
+            fetchData()
+        },[]
+    )
   return (
     <div>
         <NavigationBar />
@@ -19,16 +42,27 @@ const ViewPage = () => {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>34</td>
-      <td>Male</td>
-      <td>O+</td>
-      <td>meera</td>
-      <td>a010</td>
-      <td>6573637263</td>
+
+    {data.map(
+
+        (value,index)=>{
+
+            return(
+
+                <tr>
+      <th scope="row">{value.patientId}</th>
+      <td>{value.name}</td>
+      <td>{value.age}</td>
+      <td>{value.gender}</td>
+      <td>{value.bloodGroup}</td>
+      <td>{value.doctor}</td>
+      <td>{value.room}</td>
+      <td>{value.mobile}</td>
     </tr>
+            )
+
+        }
+    )}
     
     
   </tbody>
