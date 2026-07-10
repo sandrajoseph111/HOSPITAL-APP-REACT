@@ -5,6 +5,8 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Register from './components/Register'
 import Search from './components/Search'
+import Discharge from './components/Discharge'
+import ViewPage from './components/ViewPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,6 +15,8 @@ function App() {
     <>
       <Register />
       <Search />
+      <Discharge />
+      <ViewPage />
     </>
   )
 }
